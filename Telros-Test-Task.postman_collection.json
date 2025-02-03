@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "680386d0-07fa-4497-bc38-c520a6e70c32",
+		"name": "Telros-Test-Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36671025"
+	},
+	"item": [
+		{
+			"name": "createUserContacts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"email@mail.com\",\r\n    \"number\": \"+8(888)-888-88-88\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user-contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserContacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-contacts/f17918e2-e18a-11ef-9bd3-0242ac180002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-contacts",
+						"f17918e2-e18a-11ef-9bd3-0242ac180002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserContacts",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"any@any.com\",\r\n    \"number\": \"+1(111)-111-11-11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user-contacts/f17918e2-e18a-11ef-9bd3-0242ac180002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-contacts",
+						"f17918e2-e18a-11ef-9bd3-0242ac180002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserDetails",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"f17918e2-e18a-11ef-9bd3-0242ac180002\",\r\n    \"surname\": \"Иванов\",\r\n    \"name\": \"Иван\",\r\n    \"secondName\": \"Иванович\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user-details/f17918e2-e18a-11ef-9bd3-0242ac180002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-details",
+						"f17918e2-e18a-11ef-9bd3-0242ac180002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-details/f17918e2-e18a-11ef-9bd3-0242ac180002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-details",
+						"f17918e2-e18a-11ef-9bd3-0242ac180002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserContacts",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-contacts/f17918e2-e18a-11ef-9bd3-0242ac180002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-contacts",
+						"f17918e2-e18a-11ef-9bd3-0242ac180002"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
