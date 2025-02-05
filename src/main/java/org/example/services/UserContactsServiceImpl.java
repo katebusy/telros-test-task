@@ -10,6 +10,7 @@ import org.example.repositories.UserContactsRepository;
 import org.example.repositories.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -22,6 +23,7 @@ public class UserContactsServiceImpl implements UserContactsService {
     private UserDetailsRepository detailsRepository;
 
     @Override
+    @Transactional
     public UserContactsDTO createUser(UserContactsDTO userContactsDTO) {
         UserContacts userContacts = UserContactsMapper.ToEntity(userContactsDTO);
         UserContacts saved = contactsRepository.save(userContacts);
@@ -32,6 +34,7 @@ public class UserContactsServiceImpl implements UserContactsService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserContactsDTO getUser(UUID id) {
         return contactsRepository.findById(id)
                 .map(UserContactsMapper::ToDTO)
@@ -39,6 +42,7 @@ public class UserContactsServiceImpl implements UserContactsService {
     }
 
     @Override
+    @Transactional
     public UserContactsDTO updateUser(UUID id, UserContactsDTO userContactsDTO) {
         if (!contactsRepository.existsById(id)) {
             throw new EntityNotFoundException("There is no user with this id: %s".formatted(id));
@@ -50,6 +54,7 @@ public class UserContactsServiceImpl implements UserContactsService {
     }
 
     @Override
+    @Transactional
     public void deleteUser(UUID id) {
         if (!contactsRepository.existsById(id)) {
             throw new EntityNotFoundException("There is no user with this id: %s".formatted(id));

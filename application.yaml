@@ -8,3 +8,8 @@ spring:
     driverClassName: org.postgresql.Driver
   jpa:
     database: POSTGRESQL
+
+minio:
+  url: http://localhost:9000
+  username: minioadmin
+  password: minioadmin

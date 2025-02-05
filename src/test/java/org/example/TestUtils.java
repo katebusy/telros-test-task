@@ -35,6 +35,13 @@ public class TestUtils {
                 .build();
     }
 
+    public static UserPhotosDTO buildUserPhotoDTO() {
+        return UserPhotosDTO.builder()
+                .id(UUID.randomUUID())
+                .filename("/path")
+                .build();
+    }
+
     @SneakyThrows
     public static String jsonStringify(Object obj) {
             return new ObjectMapper()

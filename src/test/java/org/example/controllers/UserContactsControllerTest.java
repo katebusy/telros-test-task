@@ -45,7 +45,6 @@ class UserContactsControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(TestUtils.jsonStringify(request)))
                 .andExpect(status().isCreated())
-                // нужно проверить хедер content-type: application-json
                 .andExpectAll(
                         jsonPath("$.id", Matchers.is(response.getId().toString())),
                         jsonPath("$.email", Matchers.is(response.getEmail())),

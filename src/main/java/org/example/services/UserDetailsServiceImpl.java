@@ -8,6 +8,7 @@ import org.example.models.UserDetailsDTO;
 import org.example.repositories.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserDetailsRepository repository;
 
     @Override
+    @Transactional(readOnly = true)
     public UserDetailsDTO getUserDetails(UUID id) {
         return repository.findById(id)
                 .map(UserDetailsMapper::ToDTO)
@@ -25,6 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
+    @Transactional
     public UserDetailsDTO updateUserDetails(UUID id, UserDetailsDTO userDetailsDTO) {
         if (!repository.existsById(id)) {
             throw new EntityNotFoundException("There is no user with this id: %s".formatted(id));
